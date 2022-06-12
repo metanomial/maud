@@ -221,11 +221,11 @@ mod rocket_support {
     };
     use std::io::Cursor;
 
-    impl Responder<'static> for PreEscaped<String> {
+    impl<'r> Responder<'r, 'static> for PreEscaped<String> {
         fn respond_to(self, _: &Request) -> Result<Response<'static>, Status> {
             Response::build()
                 .header(ContentType::HTML)
-                .sized_body(Cursor::new(self.0))
+                .streamed_body(Cursor::new(self.0))
                 .ok()
         }
     }

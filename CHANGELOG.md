@@ -1,6 +1,7 @@
 # Change Log
 
 ## [Unreleased]
+- Rocket 0.5 support
 
 ## [0.23.0] - 2021-11-10
 

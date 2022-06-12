@@ -77,8 +77,9 @@ fn hello<'a>(name: Cow<'a, str>) -> Markup {
     }
 }
 
-fn main() {
-    rocket::ignite().mount("/", routes![hello]).launch();
+#[rocket::launch]
+async fn launch() -> _ {
+    rocket::build().mount("/", routes![hello])
 }
 ```
 
